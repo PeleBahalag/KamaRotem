@@ -31,7 +31,7 @@ export default {
     },
     methods : {
         navigate(pageName){
-
+            this.$emit('move-page' , pageName)
         }
     }
 }
@@ -117,10 +117,35 @@ export default {
 }
 
 .bahalag{
-    left:0%;
+    left:1%;
 }
 
 .tazam{
-    left:20%;
+    left:21%;
+}
+
+@media (min-width: 1025px){
+    .title{
+        font-size: 7vmin !important;
+    }
+    .instruction{
+        font-size: 3vmin;
+    }
+    .logo{
+        width:5%;
+    }
+    .tazam{
+        left: 7%;
+    }
+    .nav{
+        width: 23%;
+        height: 85%;
+    }
+    .moreshet{
+        height:87% !important;
+    }
+    .nav-container{
+        justify-content: space-between;
+    }
 }
 </style>
