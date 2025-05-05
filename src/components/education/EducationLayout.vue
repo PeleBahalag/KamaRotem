@@ -66,6 +66,7 @@ export default {
     position:fixed ;
     top:0.5%;
     left:0.5%;
+    z-index: 4;
 }
 
 .scrollable{
@@ -78,6 +79,7 @@ export default {
     height: calc(100vh - 10vh); /* account for the margin or header height */
     overflow-y: auto;
     overflow-x: hidden;
+    z-index: 2;
 }
 
 @media (min-width: 1025px){
