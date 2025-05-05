@@ -147,5 +147,8 @@ export default {
     .nav-container{
         justify-content: space-between;
     }
+    #home-screen{
+        background-image: url("../assets/background/desktopHome.jpg");
+    }
 }
 </style>

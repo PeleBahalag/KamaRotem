@@ -2,7 +2,10 @@
     <div id="education">
         <h3 id="section-title">1. חינוך</h3>
         <img src="../../assets/navs/home.png" class="rth" @click="rth">
-        <router-view></router-view>
+        <div class="scrollable">
+            <router-view></router-view>
+        </div>
+        
     </div>
 </template>
 
@@ -42,7 +45,6 @@ export default {
     background-image: url("../../assets/background/contentbg.png");
     background-size: 100% 100%;
     color: white;
-    color: white;
     direction: rtl;
     overflow: hidden;
 }
@@ -66,5 +68,25 @@ export default {
     left:0.5%;
 }
 
+.scrollable{
+    width: 100%;
+    overflow-y: auto;
+    padding: 2vh 2vw; /* Optional spacing */
+    box-sizing: border-box;
+    position: relative;
+    margin-top: 2.5vh; /* or try padding-top if it feels better */
+    height: calc(100vh - 10vh); /* account for the margin or header height */
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+@media (min-width: 1025px){
+    #education{
+        background-image: url("../../assets/background/desktopContent.png");
+    }
+    #section-title{
+        top:-3%;
+    }
+}
 
 </style>

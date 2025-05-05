@@ -23,7 +23,8 @@ import HomeScreen from './components/HomeScreen.vue'
 
 <style scoped>
 #app{
-  height: 100vw;
-  width: 100vh;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 </style>
