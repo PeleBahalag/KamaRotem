@@ -17,7 +17,7 @@ import HomeScreen from './components/HomeScreen.vue'
 
 <template>
   <div id="app">
-    <home-screen v-if="currentPage === 'home'" @move-page="navigate"></home-screen>
+    <router-view></router-view>
   </div>
 </template>
 

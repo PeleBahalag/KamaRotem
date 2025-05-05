@@ -12,10 +12,10 @@
                 ברוכה הבאה! הלומדה מכילה 4 נושאים עם תרגולים שיעזרו לך להגיע לקמ"א הכי מוכנה שאפשר. בחרי נושא כדי להתחיל (תמיד אפשר לחזור לכאן).
             </p>
             <div class="nav-container">
-                <img src="../assets/navs/edu.png" class="nav" @click="navigate('edu')">
-                <img src="../assets/navs/map.png" class="nav" @click="navigate('edu')">
-                <img src="../assets/navs/heritage.png" class="nav moreshet" @click="navigate('edu')">
-                <img src="../assets/navs/topo.png" class="nav" @click="navigate('edu')">
+                <img src="../assets/navs/edu.png" class="nav" @click="navigate('education')">
+                <img src="../assets/navs/map.png" class="nav" @click="navigate('map')">
+                <img src="../assets/navs/heritage.png" class="nav moreshet" @click="navigate('heritage')">
+                <img src="../assets/navs/topo.png" class="nav" @click="navigate('topography')">
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@ export default {
     },
     methods : {
         navigate(pageName){
-            this.$emit('move-page' , pageName)
+            this.$router.push(`/KamaRotem/${pageName}`);
         }
     }
 }
