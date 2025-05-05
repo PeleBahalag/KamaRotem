@@ -7,7 +7,7 @@
             <li v-for="(item, index) in education.parts" :key="index">{{ item }}</li>
         </ol>
         <h5>סמלי המדינה</h5>
-        <p>{{ education.semelDef }}</p>
+        <p class="content">{{ education.semelDef }}</p>
         <h4>סמלי מדינת ישראל:</h4>
         <div class="accordion accordion-flush custom-accordion" id="accordionFlushExample">
             <div class="accordion-item">

@@ -86,10 +86,18 @@ export default {
             font-size: 3vmin;
         }
         h5{
-            font-size: 4vmin;
+            font-size: 6vmin !important;
         }
         li{
             font-size: 3vmin;
+        }
+        .arachim{
+            width: 30%;
+            text-align: center;
+            margin: auto;
+        }
+        .spirit{
+            text-align: center;
         }
     }
 

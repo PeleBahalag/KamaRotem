@@ -62,7 +62,7 @@ export default {
     height: 9.5%;
     width:100%;
     position: absolute;
-    top:0%;
+    top:3%;
     right:0%;
 }
 
@@ -70,7 +70,7 @@ export default {
     height: 70%;
     width: 90%;
     position: absolute;
-    top:12%;
+    top:15%;
     left:50%;
     transform: translateX(-50%);
     background-color: rgba(255,255,255,0.6);

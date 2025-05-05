@@ -88,7 +88,7 @@ export default {
         background-image: url("../../assets/background/desktopContent.png");
     }
     #section-title{
-        top:-3%;
+        top:0%;
     }
 }
 
