@@ -17,7 +17,7 @@ export default {
    },
    methods : {
         rth(){
-            this.$router.push("/KamaRotem") 
+            this.$router.push("/KamaRotem");
         }
     }
    }
@@ -47,12 +47,13 @@ export default {
     color: white;
     direction: rtl;
     overflow: hidden;
+    font-family: 'open-sans';
 }
 
 #section-title{
     position: absolute;
     width: 100%;
-    top:-0.25%;
+    top:1%;
     right:3%;
     text-align: right;
     font-weight: bold;
@@ -75,7 +76,7 @@ export default {
     padding: 2vh 2vw; /* Optional spacing */
     box-sizing: border-box;
     position: relative;
-    margin-top: 2.5vh; /* or try padding-top if it feels better */
+    margin-top: 5vh; /* or try padding-top if it feels better */
     height: calc(100vh - 10vh); /* account for the margin or header height */
     overflow-y: auto;
     overflow-x: hidden;

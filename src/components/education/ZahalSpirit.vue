@@ -4,10 +4,18 @@
         <p class="content">{{ education.firstPara }}</p>
         <h5>ערכי היסוד</h5>
         <ul>
-            <li v-for="(index , item) in education.baseValues" :key="index">
-                {{ item.title }} - {{ item.text }}
+            <li v-for="(item, index) in education.baseValues" :key="index">
+                <strong>{{ item.title }}</strong> {{ item.text }}
             </li>
         </ul>
+        <img src="../../assets/graphics/arachim.png" class="arachim">
+        <p class="content">{{ education.valuesEnd }}</p>
+        <div>
+            <div class="footer" @click="navigate('decleration')">
+                <img src="../../assets/navs/next.png" class="navpic">
+                <p>מגילת העצמאות</p>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -17,6 +25,11 @@ export default {
     data() {
         return{
             education,
+        }
+    },
+    methods : {
+        navigate(child){
+            this.$router.push(child);
         }
     }
 }
@@ -33,7 +46,6 @@ export default {
     }
     #spirit{
         width: 100%;
-        border: 2px red solid;
         text-align: right;
         color: white;
     }
@@ -48,6 +60,25 @@ export default {
     }
     .subtitles{
         font-weight: bold;
+    }
+    h5{
+        font-size: 5vmin;
+        margin: 0!important;
+    }
+    .arachim{
+        width: 100%;
+    }
+    .footer{
+        height: 13vmin;
+        display: flex;
+        flex-flow: column;
+        align-items: flex-end;
+        padding: 2vmin;
+    }
+    .navpic{
+        height: 80%;
+        width: 13%;
+        display: block;
     }
 
     @media (min-width: 1025px){

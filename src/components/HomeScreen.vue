@@ -1,7 +1,6 @@
 <template>
     <div id="home-screen">
         <div class="banner">
-            
             <img src="../assets/navs/tazam.png" class="logo tazam">
             <img src="../assets/navs/bahalag.png" class="logo bahalag">
             <img src="../assets/navs/pele.png" class="logo pele">
