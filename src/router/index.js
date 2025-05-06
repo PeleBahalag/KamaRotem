@@ -6,6 +6,7 @@ import IndependenceDecleration from '../components/education/independenceDeclera
 import WarsOperations from '../components/education/WarsOperations.vue'
 import ImportantPeople from '../components/education/ImportantPeople.vue'
 import CalendarHolidays from '../components/education/CalendarHolidays.vue'
+import SilentMap from '../components/SilentMap.vue'
 
 const routes = [
   { path: '/KamaRotem', component: HomeScreen },
@@ -16,7 +17,8 @@ const routes = [
       {path:'decleration' , component : IndependenceDecleration},
       {path:'wars' , component : WarsOperations},
       {path:'vips' , component : ImportantPeople},
-      {path:'holidays' , component : CalendarHolidays}
+      {path:'holidays' , component : CalendarHolidays},
+      {path:'map' , component: SilentMap}
     ]
   }
 ]

@@ -116,7 +116,7 @@ export default {
     }
     .footer{
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: row-reverse nowrap;
         height: 13vmin;
         width: 100%;
         justify-content: space-between;

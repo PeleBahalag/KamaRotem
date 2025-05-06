@@ -12,9 +12,9 @@
             </p>
             <div class="nav-container">
                 <img src="../assets/navs/edu.png" class="nav" @click="navigate('education')">
-                <img src="../assets/navs/map.png" class="nav" @click="navigate('map')">
-                <img src="../assets/navs/heritage.png" class="nav moreshet" @click="navigate('heritage')">
-                <img src="../assets/navs/topo.png" class="nav" @click="navigate('topography')">
+                <img src="../assets/navs/map.png" class="nav" @click="navigate('education/map')">
+                <img src="../assets/navs/heritage.png" class="nav moreshet" @click="navigate('education/heritage')">
+                <img src="../assets/navs/topo.png" class="nav" @click="navigate('education/topography')">
             </div>
         </div>
     </div>

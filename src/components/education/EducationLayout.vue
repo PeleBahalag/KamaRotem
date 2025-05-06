@@ -1,8 +1,8 @@
 <template>
     <div id="education">
-        <h3 id="section-title">1. חינוך</h3>
+        <h3 id="section-title">{{ dynamicTitle }}</h3>
         <img src="../../assets/navs/home.png" class="rth" @click="rth">
-        <div class="scrollable">
+        <div class="scrollable" :class="{map:isMap}">
             <router-view></router-view>
         </div>
         
@@ -13,11 +13,26 @@
 export default {
    name:'education-layout',
    data(){
-    return{}
+    return{
+
+    }
    },
    methods : {
         rth(){
             this.$router.push("/KamaRotem");
+        }
+    },
+    computed : {
+        dynamicTitle(){
+            const path = this.$route.path;
+            console.log('computing subtitle')
+            if(path.includes('spirit') || path.includes('decleration') || path.includes('war') || path.includes('vips') || path.includes('holidays')) {return "1. חינוך"} 
+            if(path.includes('map')){return "2. מפה אילמת"}
+            
+        },
+        isMap(){
+            if(this.$route.path.includes('map')) {return true}
+            return false;
         }
     }
    }
@@ -72,7 +87,6 @@ export default {
 
 .scrollable{
     width: 100%;
-    overflow-y: auto;
     padding: 2vh 2vw; /* Optional spacing */
     box-sizing: border-box;
     position: relative;
@@ -81,6 +95,10 @@ export default {
     overflow-y: auto;
     overflow-x: hidden;
     z-index: 2;
+}
+
+.map{
+    overflow-y: hidden !important;
 }
 
 @media (min-width: 1025px){

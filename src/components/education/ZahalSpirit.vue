@@ -70,10 +70,11 @@ export default {
     }
     .footer{
         height: 13vmin;
-        display: flex;
-        flex-flow: column;
-        align-items: flex-end;
+        text-align: left;
         padding: 2vmin;
+        direction: ltr;
+        display: flex;
+        justify-content: flex-end;
     }
     .navpic{
         height: 80%;
