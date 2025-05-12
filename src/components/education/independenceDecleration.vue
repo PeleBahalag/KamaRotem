@@ -105,6 +105,7 @@ export default {
     .content{
         font-family: 'sans';
         text-align: center;
+        font-size:4vmin;
     }
     h5{
         font-size: 5vmin;
@@ -141,11 +142,12 @@ export default {
         border: 2px solid #e5f6f9 !important;
     }
     .accordion-body{
-        background-color: transparent;
+        background-color: rgba(0, 0, 0, 0.28);
         backdrop-filter: blur(4px);
+        color:white;
     }
     .accordion-item{
-        background: transparent;
+        background: rgba(0, 0, 0, 0.28);
     }
     .custom-accordion {
         --bs-accordion-bg: rgba(0, 0, 0, 0.28);
