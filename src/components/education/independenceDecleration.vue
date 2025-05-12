@@ -82,7 +82,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     @font-face {
         font-family: 'sans';
         src: url("../../assets/fonts/OpenSans-Regular.ttf");
@@ -116,19 +116,19 @@ export default {
     }
     .footer{
         display: flex;
-        flex-flow: row-reverse nowrap;
+        flex-flow: row nowrap;
         height: 13vmin;
         width: 100%;
         justify-content: space-between;
-        padding: 2vmin;
+        padding-top: 2vmin;
     }
     .navs{
-        height:80%;
-        width: 20%;
+        height:100%;
+        width: 50%;
     }
     .item{
         height: 100%;
-        width: 50%;
+        width: 30%;
     }
     .accordion{
         direction: rtl !important;

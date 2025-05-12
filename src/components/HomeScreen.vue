@@ -89,10 +89,14 @@ export default {
 .title{
     font-family: 'rubik';
     font-size: 10vmin;
+    text-align: center;
 }
 
 .instruction{
     font-family: "open-sans";
+    position: static;
+    color: black;
+    text-align: center;
 }
 
 .nav{

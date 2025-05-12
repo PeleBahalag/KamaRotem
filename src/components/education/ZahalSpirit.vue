@@ -10,7 +10,7 @@
         </ul>
         <img src="../../assets/graphics/arachim.png" class="arachim">
         <p class="content">{{ education.valuesEnd }}</p>
-        <div>
+        <div class="nav">
             <div class="footer" @click="navigate('decleration')">
                 <img src="../../assets/navs/next.png" class="navpic">
                 <p>מגילת העצמאות</p>
@@ -35,7 +35,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     @font-face {
         font-family: 'sans';
         src: url("../../assets/fonts/OpenSans-Regular.ttf");
@@ -74,12 +74,21 @@ export default {
         padding: 2vmin;
         direction: ltr;
         display: flex;
+        flex-flow: column;
         justify-content: flex-end;
     }
     .navpic{
-        height: 80%;
-        width: 13%;
+        height: 150%;
+        width: 20%;
         display: block;
+    }
+    .nav{
+        width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-end;
+        padding: 3%;
+        padding-top:10% ;
     }
 
     @media (min-width: 1025px){

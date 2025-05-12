@@ -4,16 +4,16 @@
         </p>
         <div class="game-container">
             <div class="answers">
-                <div class="myBtn" style="background-color:#ffde59" draggable="true" @dragstart="startDrag('negev')" v-if="!negevFound">הנגב</div>
-                <div class="myBtn" style="background-color:#28a808" draggable="true" @dragstart="startDrag('golan')" v-if="!golanFound">רמת הגולן</div>
-                <div class="myBtn" style="background-color:#a7cceb" draggable="true" @dragstart="startDrag('hula')" v-if="!hulaFound">עמק החולה</div>
-                <div class="myBtn" style="background-color:#ff914d" draggable="true" @dragstart="startDrag('mishor')" v-if="!mishorFound">מישור החוף</div>
-                <div class="myBtn" style="background-color:#8c756a" draggable="true" @dragstart="startDrag('arava')" v-if="!aravaFound">ערבה + בקעת הירדן</div>
-                <div class="myBtn" style="background-color:white" draggable="true" @dragstart="startDrag('hermon')" v-if="!hermonFound">החרמון</div>
-                <div class="myBtn" style="background-color:#5ce1e6" draggable="true" @dragstart="startDrag('carmel')" v-if="!carmelFound">הכרמל + השומרון</div>
-                <div class="myBtn" style="background-color:#f8716b" draggable="true" @dragstart="startDrag('galil')" v-if="!galilFound">הגליל</div>
-                <div class="myBtn" style="background-color:#c1b654" draggable="true" @dragstart="startDrag('yehuda')" v-if="!yehudaFound">יהודה</div>
-                <div class="myBtn" style="background-color:#8c52ff" draggable="true" @dragstart="startDrag('amakim')" v-if="!amakimFound">אזור העמקים</div>
+                <div class="myBtn" style="background-color:#ffde59" draggable="true" @dragstart="startDrag('negev', $event)" v-if="!negevFound">הנגב</div>
+                <div class="myBtn" style="background-color:#28a808" draggable="true" @dragstart="startDrag('golan', $event)" v-if="!golanFound">רמת הגולן</div>
+                <div class="myBtn" style="background-color:#a7cceb" draggable="true" @dragstart="startDrag('hula', $event)" v-if="!hulaFound">עמק החולה</div>
+                <div class="myBtn" style="background-color:#ff914d" draggable="true" @dragstart="startDrag('mishor', $event)" v-if="!mishorFound">מישור החוף</div>
+                <div class="myBtn" style="background-color:#8c756a" draggable="true" @dragstart="startDrag('arava', $event)" v-if="!aravaFound">ערבה + בקעת הירדן</div>
+                <div class="myBtn" style="background-color:white" draggable="true" @dragstart="startDrag('hermon', $event)" v-if="!hermonFound">החרמון</div>
+                <div class="myBtn" style="background-color:#5ce1e6" draggable="true" @dragstart="startDrag('carmel', $event)" v-if="!carmelFound">הכרמל + השומרון</div>
+                <div class="myBtn" style="background-color:#f8716b" draggable="true" @dragstart="startDrag('galil', $event)" v-if="!galilFound">הגליל</div>
+                <div class="myBtn" style="background-color:#c1b654" draggable="true" @dragstart="startDrag('yehuda', $event)" v-if="!yehudaFound">יהודה</div>
+                <div class="myBtn" style="background-color:#8c52ff" draggable="true" @dragstart="startDrag('amakim', $event)" v-if="!amakimFound">אזור העמקים</div>
             </div>
             <div class="map-container">
                 <!--dropzones-->
@@ -66,8 +66,9 @@ export default {
         }
     },
     methods : {
-        startDrag(name){
+        startDrag(name , event){
             this.currentRegion = name;
+            event.dataTransfer.setData("text/plain", name);
         },
         handleDrop(zoneName){
             if(zoneName === this.currentRegion){
@@ -79,10 +80,10 @@ export default {
                         this.yehudaFound = true;
                         break;
                     case 'amakim': 
-                        this.amakimFound;
+                        this.amakimFound = true;
                         break;
                     case 'hermon':
-                        this.hermonFound;
+                        this.hermonFound = true;
                         break;
                     case 'galil':
                         this.galilFound = true;
@@ -316,6 +317,17 @@ export default {
         position:absolute;
         top:1.5%;
         right:42.5%;
+    }
+    @media (min-width: 1025px){
+        .game-container{
+            width: 30%;
+        }
+        .myBtn{
+            font-size: 3vmin;}
+        .answers{
+            height: 110%
+            ;
+        }
     }
 
 </style>
