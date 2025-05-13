@@ -15,6 +15,7 @@
                 <img src="../assets/navs/map.png" class="nav" @click="navigate('education/map')">
                 <img src="../assets/navs/heritage.png" class="nav moreshet" @click="navigate('education/background')">
                 <img src="../assets/navs/topo.png" class="nav" @click="navigate('education/topography')">
+                <img src="../assets/navs/weapon.png" class="nav" @click="navigate('education/weapon')">
             </div>
         </div>
     </div>
@@ -67,8 +68,8 @@ export default {
 }
 
 .container{
-    height: 70%;
-    width: 90%;
+    height: 75%;
+    width: 92%;
     position: absolute;
     top:15%;
     left:50%;
@@ -84,6 +85,7 @@ export default {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
 }
 
 .title{
@@ -100,12 +102,12 @@ export default {
 }
 
 .nav{
-    height:50%;
-    width: 50%;
+    height:43%;
+    width: 47%;
     cursor: pointer;
 }
 .moreshet{
-    height:52% !important;
+    height:45% !important;
 }
 
 .logo{

@@ -37,13 +37,13 @@
             </div>
             <div class="my-card" :class="{showCard : currentYear === '1974'}">
                 <h5>{{ timeline.seventyfour.title }}</h5>
+                <img src="../../assets/graphics/414.png" class="gdud-logo">
                 <p v-for="(line , index) in timeline.seventyfour.text" :key="index">{{ line }}</p>
-                <!--414 image-->
             </div>
             <div class="my-card" :class="{showCard : currentYear === '1976'}">
                 <h5>{{ timeline.seventysix.title }}</h5>
+                <img src="../../assets/graphics/869.png" class="gdud-logo">
                 <p v-for="(line , index) in timeline.seventysix.text" :key="index">{{ line }}</p>
-                <!--869 image-->
             </div>
             <div class="my-card" :class="{showCard : currentYear === '1987'}">
                 <h5>{{ timeline.eightyseven.title }}</h5>
@@ -51,6 +51,7 @@
             </div>
             <div class="my-card" :class="{showCard : currentYear === '1993'}">
                 <h5>{{ timeline.ninetythree.title }}</h5>
+                <img src="../../assets/graphics/636.png" class="gdud-logo">
                 <p v-for="(line , index) in timeline.ninetythree.text" :key="index">{{ line }}</p>
                 <!--636 image-->
             </div>
@@ -60,19 +61,45 @@
             </div>
             <div class="my-card" :class="{showCard : currentYear === '2000'}">
                 <h5>{{ timeline.alpayim.title }}</h5>
-                <p v-for="(line , index) in timeline.alpayim.text" :key="index">{{ line }}</p>
+                <p >{{ timeline.alpayim.text }}</p>
             </div>
             <div class="my-card" :class="{showCard : currentYear === '2003'}">
                 <h5>{{ timeline.three.title }}</h5>
-                <p v-for="(line , index) in timeline.three.text" :key="index">{{ line }}</p>
+                <p>{{ timeline.three.opening }}</p>
+                <ul>
+                    <li v-for="(item , index) in timeline.three.list" :key="index">{{ item }}</li>
+                </ul>
             </div>
-            <div class="my-card" :class="{showCard : currentYear === '2009'}">2009</div>
-            <div class="my-card" :class="{showCard : currentYear === '2012'}">2012</div>
-            <div class="my-card" :class="{showCard : currentYear === '2013'}">2013</div>
-            <div class="my-card" :class="{showCard : currentYear === '2015'}">2015</div>
-            <div class="my-card" :class="{showCard : currentYear === '2017'}">2017</div>
+            <div class="my-card" :class="{showCard : currentYear === '2009'}">
+                <h5>{{ timeline.nine.title }}</h5>
+                <p v-for="(line , index) in timeline.nine.text" :key="index">{{ line }}</p>
+            </div>
+            <div class="my-card" :class="{showCard : currentYear === '2012'}">
+                <h5>{{ timeline.twelve.title }}</h5>
+                <img src="../../assets/graphics/727.png" class="gdud-logo">
+                <p v-for="(line , index) in timeline.twelve.text" :key="index">{{ line }}</p>
+            </div>
+            <div class="my-card" :class="{showCard : currentYear === '2013'}">
+                <h5>{{ timeline.thirteen.title }}</h5>
+                <img src="../../assets/graphics/595.png" class="gdud-logo">
+                <p v-for="(line , index) in timeline.thirteen.text" :key="index">{{ line }}</p>
+            </div>
+            <div class="my-card" :class="{showCard : currentYear === '2015'}">
+                <h5>{{ timeline.fifteen.title }}</h5>
+                <p v-for="(line , index) in timeline.fifteen.text" :key="index">{{ line }}</p>
+            </div>
+            <div class="my-card" :class="{showCard : currentYear === '2017'}">
+                <h5>{{ timeline.seventeen.title }}</h5>
+                <p v-for="(line , index) in timeline.seventeen.text" :key="index">{{ line }}</p>
+            </div>
         </div>
     </div>
+    <div class="footer">
+            <div class="item" @click="navigate('background')">
+                <img src="../../assets/navs/prev.png" class="navs prev">
+                <p>רקע על החיל</p>
+            </div>
+        </div>
   </div>
 </template>
 
@@ -88,6 +115,9 @@ export default {
     methods : {
         yearClicked(year){
             this.currentYear = year;
+        },
+        navigate(child){
+            this.$router.push(child) ;
         }
     }
 }
@@ -118,12 +148,12 @@ export default {
         margin: 0!important;
         text-align: right;
         position: relative;
-        top:6vh;
+        top:4vh;
     }
     .instruct{
         text-align: right;
         position: relative;
-        top:6.5vh;
+        top:4.5vh;
     }
     .timeline-container{
         padding: 3%;
@@ -132,7 +162,7 @@ export default {
         flex-direction: column;
         overflow-x: auto;
         right: 0;
-        top:7.5vh;
+        top:4.5vh;
         height: auto;
     }
     .timeline-row{
@@ -208,19 +238,42 @@ export default {
     .my-card{
         width: 52vw;
         height: auto;
+        max-height: 60vh;
         background-color: rgba(255, 255, 255, 0.726);
-        pointer-events: none;
         z-index: 5;
         color: black;
         border-radius: 30px;
         padding: .5%;
         opacity: 0;
         transition: opacity 0.3s ease;
-        overflow-y: scroll;
+        overflow-y: auto;
         margin-bottom:1% ;
     }
 
     .showCard{
         opacity: 1 !important;
+    }
+    .gdud-logo{
+        height: 20%;
+        width: 50%;
+    }
+    .footer{
+        position: fixed;
+        bottom: 4%;
+        display: flex;
+        flex-flow: row nowrap;
+        height: 13vmin;
+        width: 100%;
+        justify-content: space-between;
+        padding-top: 2vmin;
+        z-index: 13;
+    }
+    .navs{
+        height:100%;
+        width: 50%;
+    }
+    .item{
+        height: 100%;
+        width: 30%;
     }
 </style>

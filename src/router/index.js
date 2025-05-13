@@ -10,6 +10,7 @@ import SilentMap from '../components/SilentMap.vue'
 import HeritageBackground from '../components/heritage/HeritageBackground.vue'
 import ChailHistory from '../components/heritage/ChailHistory.vue'
 import GdudimComp from '../components/heritage/GdudimComp.vue'
+import WeaponMenu from '../components/WeaponMenu.vue'
 
 const routes = [
   { path: '/KamaRotem', component: HomeScreen },
@@ -24,7 +25,8 @@ const routes = [
       {path:'map' , component: SilentMap},
       {path:'background' , component:HeritageBackground},
       {path: 'history' , component : ChailHistory} , 
-      {path:'gdudim' , component : GdudimComp}
+      {path:'gdudim' , component : GdudimComp},
+      {path:'weapon' , component : WeaponMenu}
     ]
   }
 ]
