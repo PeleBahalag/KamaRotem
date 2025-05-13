@@ -6,20 +6,20 @@
         <div class="timeline-row">
             <div class="timeline-bar"></div>
             <div class="circle-container">
-                <div class="circle" @click="yearClicked('1969' , 'circ69')" ref="circ69">1969</div>
-                <div class="circle" @click="yearClicked('1973' , 'circ73')" ref="circ73">1973</div>
-                <div class="circle" @click="yearClicked('1974' , 'circ74')" ref="circ74">1974</div>
-                <div class="circle" @click="yearClicked('1976' , 'circ76')" ref="circ76">1976</div>
-                <div class="circle" @click="yearClicked('1987' , 'circ87')" ref="circ87">1987</div>
-                <div class="circle" @click="yearClicked('1993' , 'circ93')" ref="circ93">1993</div>
-                <div class="circle" @click="yearClicked('1998' , 'circ98')" ref="circ98">1998</div>
-                <div class="circle" @click="yearClicked('2000' , 'circ2000')" ref="circ2000">2000</div>
-                <div class="circle" @click="yearClicked('2003' , 'circ03')" ref="circ03">2003</div>
-                <div class="circle" @click="yearClicked('2009' , 'circ09')" ref="circ09">2009</div>
-                <div class="circle" @click="yearClicked('2012' , 'circ12')" ref="circ12">2012</div>
-                <div class="circle" @click="yearClicked('2013' , 'circ13')" ref="circ13">2013</div>
-                <div class="circle" @click="yearClicked('2015' , 'circ15')" ref="circ15">2015</div>
-                <div class="circle" @click="yearClicked('2017' , 'circ17')" ref="circ17">2017</div>
+                <div class="circle" @click="yearClicked('1969')" >1969</div>
+                <div class="circle" @click="yearClicked('1973')" >1973</div>
+                <div class="circle" @click="yearClicked('1974')" >1974</div>
+                <div class="circle" @click="yearClicked('1976')" >1976</div>
+                <div class="circle" @click="yearClicked('1987')">1987</div>
+                <div class="circle" @click="yearClicked('1993')" >1993</div>
+                <div class="circle" @click="yearClicked('1998')" >1998</div>
+                <div class="circle" @click="yearClicked('2000')" >2000</div>
+                <div class="circle" @click="yearClicked('2003')" >2003</div>
+                <div class="circle" @click="yearClicked('2009')" >2009</div>
+                <div class="circle" @click="yearClicked('2012')" >2012</div>
+                <div class="circle" @click="yearClicked('2013')" >2013</div>
+                <div class="circle" @click="yearClicked('2015')" >2015</div>
+                <div class="circle" @click="yearClicked('2017')" >2017</div>
             </div>
         </div>
         <div class="signifiers">
@@ -27,20 +27,26 @@
             <p>המשך יבוא...</p>
         </div>
         <div class="cards-container">
-            <div class="my-card" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni obcaecati perferendis quas, at quisquam unde quaerat iusto voluptatibus nemo quod qui, eligendi omnis quidem. Nobis at doloribus sint illum perspiciatis.</div>
-            <div class="my-card" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime odit illo hic quibusdam molestiae incidunt consectetur facilis est rem placeat, harum vero voluptate, laudantium, quas soluta doloribus eius? Hic, molestiae.</div>
-            <div class="my-card" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed repudiandae odio dolorem. Ut placeat, tempore culpa nisi explicabo dicta ea quia iure odit accusamus porro repellat accusantium quisquam dolore illo.</div>
-            <div class="my-card" ></div>
-            <div class="my-card" ></div>
-            <div class="my-card" ></div>
-            <div class="my-card" ></div>
-            <div class="my-card" ></div>
-            <div class="my-card" ></div>
-            <div class="my-card" ></div>
-            <div class="my-card" ></div>
-            <div class="my-card" ></div>
-            <div class="my-card" ></div>
-            <div class="my-card" ></div>
+            <div class="my-card" :class="{showCard : currentYear === '1969'}">
+                1969
+            </div>
+            <div class="my-card" :class="{showCard : currentYear === '1973'}">
+                1973
+            </div>
+            <div class="my-card" :class="{showCard : currentYear === '1974'}">
+                74
+            </div>
+            <div class="my-card" :class="{showCard : currentYear === '1976'}">76</div>
+            <div class="my-card" :class="{showCard : currentYear === '1987'}">87</div>
+            <div class="my-card" :class="{showCard : currentYear === '1993'}">93</div>
+            <div class="my-card" :class="{showCard : currentYear === '1998'}">98</div>
+            <div class="my-card" :class="{showCard : currentYear === '2000'}">2000</div>
+            <div class="my-card" :class="{showCard : currentYear === '2003'}">2003</div>
+            <div class="my-card" :class="{showCard : currentYear === '2009'}">2009</div>
+            <div class="my-card" :class="{showCard : currentYear === '2012'}">2012</div>
+            <div class="my-card" :class="{showCard : currentYear === '2013'}">2013</div>
+            <div class="my-card" :class="{showCard : currentYear === '2015'}">2015</div>
+            <div class="my-card" :class="{showCard : currentYear === '2017'}">2017</div>
         </div>
     </div>
   </div>
@@ -51,21 +57,12 @@ export default {
     data(){
         return{
             currentYear : '',
-            activeCardLeft : 0,
+
         }
     },
     methods : {
-        yearClicked(year , refName){
+        yearClicked(year){
             this.currentYear = year;
-            this.$nextTick(() => {
-                const circleEl = this.$refs[refName];
-                if (circleEl) {
-                const rect = circleEl.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const containerRect = this.$el.getBoundingClientRect(); // history component
-                this.activeCardLeft = centerX - containerRect.left - (cardWidth / 2);
-                }
-            })
         }
     }
 }
@@ -127,7 +124,7 @@ export default {
         height: 1vh;
         border-radius: 12px;
         margin-bottom: 10px;
-        width:715vw;
+        width:765vw;
         position: absolute;
         top: 35%;
         right: 0;
@@ -144,53 +141,59 @@ export default {
         flex-wrap: nowrap;
         justify-content: center;
         z-index: 2;
-        right:15vw;
+        right:32vw;
     }
     .signifiers{
         position: absolute;
         right:0;
-        width: 510vw;
+        width: 735vw;
         display: flex;
         justify-content: space-between;
         font-family: 'miri';
         margin: 0;
         padding: 0%;
-        top:-30px;
+        top:-4vmin;
     }
     .circle{
         height: 7vh;
-        width: 10vh;
+        width: 15vh;
         border-radius: 40px;
         background-color: rgb(0, 195, 255);
         border: 2px rgb(0, 127, 177) solid;
-        font-size: 5vmin;
+        font-size: 6vmin;
         display: flex;
         color: black;
         flex-flow: column;
         justify-content: center;
+        padding-right:3px;
+        text-align: center;
     }
     .cards-container{
         position: relative;
-        width:755vw;
-        top:-5vh;
-        background-color: rgba(224,156,13,0.2);
+        width:792vw;
+        top:0;
         right:-20vw;
         height: 40vh;
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-evenly;
         overflow-x: auto;
-        padding-right:15vw ;
+        padding-right:12vw ;
     }
     .my-card{
-        width: 50vw;
+        width: 52vw;
         height:100%;
-        background-color: blue;
+        background-color: rgba(255, 255, 255, 0.726);
         pointer-events: none;
         z-index: 5;
+        color: black;
+        border-radius: 20px;
+        padding: .25%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
+
     .showCard{
         opacity: 1 !important;
-        pointer-events: auto;
     }
 </style>
