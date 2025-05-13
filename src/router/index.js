@@ -7,6 +7,9 @@ import WarsOperations from '../components/education/WarsOperations.vue'
 import ImportantPeople from '../components/education/ImportantPeople.vue'
 import CalendarHolidays from '../components/education/CalendarHolidays.vue'
 import SilentMap from '../components/SilentMap.vue'
+import HeritageBackground from '../components/heritage/HeritageBackground.vue'
+import ChailHistory from '../components/heritage/ChailHistory.vue'
+import GdudimComp from '../components/heritage/GdudimComp.vue'
 
 const routes = [
   { path: '/KamaRotem', component: HomeScreen },
@@ -18,7 +21,10 @@ const routes = [
       {path:'wars' , component : WarsOperations},
       {path:'vips' , component : ImportantPeople},
       {path:'holidays' , component : CalendarHolidays},
-      {path:'map' , component: SilentMap}
+      {path:'map' , component: SilentMap},
+      {path:'background' , component:HeritageBackground},
+      {path: 'history' , component : ChailHistory} , 
+      {path:'gdudim' , component : GdudimComp}
     ]
   }
 ]

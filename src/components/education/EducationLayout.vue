@@ -25,13 +25,14 @@ export default {
     computed : {
         dynamicTitle(){
             const path = this.$route.path;
-            console.log('computing subtitle')
             if(path.includes('spirit') || path.includes('decleration') || path.includes('war') || path.includes('vips') || path.includes('holidays')) {return "1. חינוך"} 
             if(path.includes('map')){return "2. מפה אילמת"}
+            if(path.includes('background') || path.includes('history') || path.includes('gdudim')){return "3. מורשת החיל"}
+            else{ return "4. טופוגרפיה"}
             
         },
         isMap(){
-            if(this.$route.path.includes('map')) {return true}
+            if(this.$route.path.includes('map') || this.$route.path.includes('history')) {return true}
             return false;
         }
     }

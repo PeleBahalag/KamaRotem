@@ -104,4 +104,7 @@ export default {
         flex-flow: column;
         align-items: flex-end;
     }
+    table{
+        right: 0;
+    }
 </style>
