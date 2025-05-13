@@ -1,7 +1,7 @@
 <template>
   <div id="history">
     <h1 class="title">היסטורית החיל</h1>
-    <p>גללו בציר הזמן, לחצו על השנה כדי לראות מה קרה.</p>
+    <p class="instruct">גללו בציר הזמן, לחצו על השנה כדי לראות מה קרה.</p>
     <div class="timeline-container">
         <div class="timeline-row">
             <div class="timeline-bar"></div>
@@ -28,20 +28,44 @@
         </div>
         <div class="cards-container">
             <div class="my-card" :class="{showCard : currentYear === '1969'}">
-                1969
+                <h5>{{ timeline.sixtynine.title }}</h5>
+                <p v-for="(line , index) in timeline.sixtynine.text" :key="index">{{ line }}</p>
             </div>
             <div class="my-card" :class="{showCard : currentYear === '1973'}">
-                1973
+                <h5>{{ timeline.seventythree.title }}</h5>
+                <p v-for="(line , index) in timeline.seventythree.text" :key="index"> {{ line }}</p>
             </div>
             <div class="my-card" :class="{showCard : currentYear === '1974'}">
-                74
+                <h5>{{ timeline.seventyfour.title }}</h5>
+                <p v-for="(line , index) in timeline.seventyfour.text" :key="index">{{ line }}</p>
+                <!--414 image-->
             </div>
-            <div class="my-card" :class="{showCard : currentYear === '1976'}">76</div>
-            <div class="my-card" :class="{showCard : currentYear === '1987'}">87</div>
-            <div class="my-card" :class="{showCard : currentYear === '1993'}">93</div>
-            <div class="my-card" :class="{showCard : currentYear === '1998'}">98</div>
-            <div class="my-card" :class="{showCard : currentYear === '2000'}">2000</div>
-            <div class="my-card" :class="{showCard : currentYear === '2003'}">2003</div>
+            <div class="my-card" :class="{showCard : currentYear === '1976'}">
+                <h5>{{ timeline.seventysix.title }}</h5>
+                <p v-for="(line , index) in timeline.seventysix.text" :key="index">{{ line }}</p>
+                <!--869 image-->
+            </div>
+            <div class="my-card" :class="{showCard : currentYear === '1987'}">
+                <h5>{{ timeline.eightyseven.title }}</h5>
+                <p v-for="(line , index) in timeline.eightyseven.text" :key="index">{{ line }}</p>
+            </div>
+            <div class="my-card" :class="{showCard : currentYear === '1993'}">
+                <h5>{{ timeline.ninetythree.title }}</h5>
+                <p v-for="(line , index) in timeline.ninetythree.text" :key="index">{{ line }}</p>
+                <!--636 image-->
+            </div>
+            <div class="my-card" :class="{showCard : currentYear === '1998'}">
+                <h5>{{ timeline.ninetyeight.title }}</h5>
+                <p v-for="(line , index) in timeline.ninetyeight.text" :key="index">{{ line }}</p>
+            </div>
+            <div class="my-card" :class="{showCard : currentYear === '2000'}">
+                <h5>{{ timeline.alpayim.title }}</h5>
+                <p v-for="(line , index) in timeline.alpayim.text" :key="index">{{ line }}</p>
+            </div>
+            <div class="my-card" :class="{showCard : currentYear === '2003'}">
+                <h5>{{ timeline.three.title }}</h5>
+                <p v-for="(line , index) in timeline.three.text" :key="index">{{ line }}</p>
+            </div>
             <div class="my-card" :class="{showCard : currentYear === '2009'}">2009</div>
             <div class="my-card" :class="{showCard : currentYear === '2012'}">2012</div>
             <div class="my-card" :class="{showCard : currentYear === '2013'}">2013</div>
@@ -53,11 +77,12 @@
 </template>
 
 <script>
+import timeline from "../../assets/texts/timline.json"
 export default {
     data(){
         return{
             currentYear : '',
-
+            timeline
         }
     },
     methods : {
@@ -93,12 +118,12 @@ export default {
         margin: 0!important;
         text-align: right;
         position: relative;
-        top:10vh;
+        top:6vh;
     }
-    p{
+    .instruct{
         text-align: right;
         position: relative;
-        top:10vh;
+        top:6.5vh;
     }
     .timeline-container{
         padding: 3%;
@@ -107,7 +132,7 @@ export default {
         flex-direction: column;
         overflow-x: auto;
         right: 0;
-        top:10vh;
+        top:7.5vh;
         height: auto;
     }
     .timeline-row{
@@ -146,13 +171,13 @@ export default {
     .signifiers{
         position: absolute;
         right:0;
-        width: 735vw;
+        width: 778vw;
         display: flex;
         justify-content: space-between;
         font-family: 'miri';
         margin: 0;
         padding: 0%;
-        top:-4vmin;
+        top:15vmin;
     }
     .circle{
         height: 7vh;
@@ -171,9 +196,9 @@ export default {
     .cards-container{
         position: relative;
         width:792vw;
-        top:0;
+        top:0vh;
         right:-20vw;
-        height: 40vh;
+        height: 60vh;
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-evenly;
@@ -182,15 +207,17 @@ export default {
     }
     .my-card{
         width: 52vw;
-        height:100%;
+        height: auto;
         background-color: rgba(255, 255, 255, 0.726);
         pointer-events: none;
         z-index: 5;
         color: black;
-        border-radius: 20px;
-        padding: .25%;
+        border-radius: 30px;
+        padding: .5%;
         opacity: 0;
         transition: opacity 0.3s ease;
+        overflow-y: scroll;
+        margin-bottom:1% ;
     }
 
     .showCard{

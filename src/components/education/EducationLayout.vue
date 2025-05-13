@@ -32,7 +32,7 @@ export default {
             
         },
         isMap(){
-            if(this.$route.path.includes('map') || this.$route.path.includes('history')) {return true}
+            if(this.$route.path.includes('map')) {return true}
             return false;
         }
     }
