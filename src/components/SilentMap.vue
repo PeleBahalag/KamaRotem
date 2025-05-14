@@ -29,6 +29,7 @@
                     <img src="../assets/map/yehuda.png" id="yehuda-right" v-show="found[8].found || currentArea === 'yehuda'"/>
                     <img src="../assets/map/galil.png" id="galil-right" v-show="found[7].found || currentArea === 'galil'"/>
                 </div>
+                <div class="dropzones cities"></div>
             </div>
         </div>
         <p class="feedback" :style="{color:feedbackColor}">{{ feedback }}</p>
@@ -259,6 +260,15 @@ export default {
         left: 50%;
         transform: translateX(-50%);
 
+    }
+    .cities{
+        z-index: 40;
+        background-image: url("../assets/map/cities.png");
+        background-size: 100% 100%;
+        position: absolute;
+        width: 60% !important;
+        top:0;
+        right:40%;
     }
     @keyframes appear {
         0%{
