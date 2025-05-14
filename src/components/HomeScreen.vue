@@ -6,15 +6,15 @@
             <img src="../assets/navs/pele.png" class="logo pele">
         </div>
         <div class="container">
-            <h2 class="title">הכנה לקמא רותם</h2>
+            <h2 class="title">הכנה לקמ"א רותם</h2>
             <p class="instruction">
-                ברוכה הבאה! הלומדה מכילה 4 נושאים עם תרגולים שיעזרו לך להגיע לקמ"א הכי מוכנה שאפשר. בחרי נושא כדי להתחיל (תמיד אפשר לחזור לכאן).
+                ברוכה הבאה! הלומדה מכילה 5 נושאים עם תרגולים שיעזרו לך להגיע לקמ"א הכי מוכנה שאפשר. בחרי נושא כדי להתחיל (תמיד אפשר לחזור לכאן).
             </p>
             <div class="nav-container">
                 <img src="../assets/navs/edu.png" class="nav" @click="navigate('education')">
                 <img src="../assets/navs/map.png" class="nav" @click="navigate('education/map')">
                 <img src="../assets/navs/heritage.png" class="nav moreshet" @click="navigate('education/background')">
-                <img src="../assets/navs/topo.png" class="nav" @click="navigate('education/topography')">
+                <img src="../assets/navs/topo.png" class="nav" @click="navigate('education/topography/1')">
                 <img src="../assets/navs/weapon.png" class="nav" @click="navigate('education/weapon')">
             </div>
         </div>
@@ -68,7 +68,7 @@ export default {
 }
 
 .container{
-    height: 75%;
+    height: 79%;
     width: 92%;
     position: absolute;
     top:15%;
@@ -102,12 +102,12 @@ export default {
 }
 
 .nav{
-    height:43%;
-    width: 47%;
+    height:40%;
+    width: 45%;
     cursor: pointer;
 }
 .moreshet{
-    height:45% !important;
+    height:42% !important;
 }
 
 .logo{

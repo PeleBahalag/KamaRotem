@@ -116,7 +116,7 @@ export default {
     .instruction{
         font-family: 'sans';
         color:white;
-        font-size: 4vmin;
+        font-size: 4.65vmin;
         text-align: right;
         position: absolute;
         top:0;
@@ -182,11 +182,11 @@ export default {
         animation: appear 0.3 ease;
     }
     #negev-right{
-        height: 45.8%;
+        height: 46%;
         width:32.5%;
         position:absolute;
-        top:52.2%;
-        right:62.1%;
+        top:52%;
+        right:62%;
         animation: appear 0.3 ease;
     }
     #yehuda-right{
@@ -206,8 +206,8 @@ export default {
         animation: appear 0.3 ease;
     }
     #carmelShomron-right{
-        height: 23%;
-        width:20%;
+        height: 23.5%;
+        width:19.5%;
         position:absolute;
         top:14%;
         right:54%;
