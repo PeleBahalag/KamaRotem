@@ -61,7 +61,8 @@ export default {
     },
     methods : {
         checkAnswer(response){
-            if(response === this.currentArea){
+            setTimeout(() => {
+                if(response === this.currentArea){
                 this.feedback = this.positive;
                 this.feedbackColor = '#00ff44';
                 this.found.forEach(element => {
@@ -82,6 +83,8 @@ export default {
                 this.feedback = this.negative;
                 this.feedbackColor = 'red';
             }
+        } , 250)
+            
         }
     },
     mounted(){
@@ -134,7 +137,7 @@ export default {
         background-color: rgba(0,0,0,0.6);
         height: 100%;
         color: black !important;
-        width:38%;
+        width:40%;
         display: flex;
         flex-flow: column;
         justify-content: space-around;
@@ -157,6 +160,11 @@ export default {
         padding: 3%;
         background-color: white;
         border : 2px solid #588baf;
+    }
+
+    .myBtn:active{
+        transform: scale(0.95);
+        background-color: rgba(87, 87, 87, 0.685);
     }
 
     .dropzones{
