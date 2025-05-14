@@ -143,17 +143,26 @@ export default {
         left: 7%;
     }
     .nav{
-        width: 23%;
-        height: 85%;
+        width: 35%;
+        height: 50%;
     }
     .moreshet{
-        height:87% !important;
+        height:52% !important;
     }
     .nav-container{
         justify-content: space-between;
+        flex-wrap: wrap;
+        width: 80%;
+        flex-direction: column;
+        align-content: space-around;
     }
     #home-screen{
         background-image: url("../assets/background/desktopHome.jpg");
+    }
+    .container{
+        top:3%;
+        height: 90%;
+        width:100%;
     }
 }
 </style>

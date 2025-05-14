@@ -11,6 +11,8 @@ import HeritageBackground from '../components/heritage/HeritageBackground.vue'
 import ChailHistory from '../components/heritage/ChailHistory.vue'
 import GdudimComp from '../components/heritage/GdudimComp.vue'
 import WeaponMenu from '../components/WeaponMenu.vue'
+import TopoComp from '../components/topography/TopoComp.vue'
+import TopoOne from '../components/topography/TopoOne.vue'
 
 const routes = [
   { path: '/KamaRotem', component: HomeScreen },
@@ -26,7 +28,13 @@ const routes = [
       {path:'background' , component:HeritageBackground},
       {path: 'history' , component : ChailHistory} , 
       {path:'gdudim' , component : GdudimComp},
-      {path:'weapon' , component : WeaponMenu}
+      {path:'weapon' , component : WeaponMenu},
+      {path:'topography' , component: TopoComp, children : [
+        {path:'1' , component: TopoOne},
+        {path:'2' , component: TopoOne},
+        {path:'3' , component: TopoOne},
+        {path:'4' , component: TopoOne}
+      ]}
     ]
   }
 ]

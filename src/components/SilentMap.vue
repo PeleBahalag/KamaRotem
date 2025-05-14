@@ -1,49 +1,37 @@
 <template>
     <div>
-        <p class="instruction">גררו את שם האיזור למקום המתאים במפה. <br>אם צדקתם, האיזור יצבע בצבע המתאים.
+        <p class="instruction">בכל פעם יצבע איזור במפה - לחצו על<br> השם שלו. אם הצלחתם יצבע איזור נוסף
         </p>
         <div class="game-container">
             <div class="answers">
-                <div class="myBtn" style="background-color:#ffde59" draggable="true" @dragstart="startDrag('negev', $event)" v-if="!negevFound">הנגב</div>
-                <div class="myBtn" style="background-color:#28a808" draggable="true" @dragstart="startDrag('golan', $event)" v-if="!golanFound">רמת הגולן</div>
-                <div class="myBtn" style="background-color:#a7cceb" draggable="true" @dragstart="startDrag('hula', $event)" v-if="!hulaFound">עמק החולה</div>
-                <div class="myBtn" style="background-color:#ff914d" draggable="true" @dragstart="startDrag('mishor', $event)" v-if="!mishorFound">מישור החוף</div>
-                <div class="myBtn" style="background-color:#8c756a" draggable="true" @dragstart="startDrag('arava', $event)" v-if="!aravaFound">ערבה + בקעת הירדן</div>
-                <div class="myBtn" style="background-color:white" draggable="true" @dragstart="startDrag('hermon', $event)" v-if="!hermonFound">החרמון</div>
-                <div class="myBtn" style="background-color:#5ce1e6" draggable="true" @dragstart="startDrag('carmel', $event)" v-if="!carmelFound">הכרמל + השומרון</div>
-                <div class="myBtn" style="background-color:#f8716b" draggable="true" @dragstart="startDrag('galil', $event)" v-if="!galilFound">הגליל</div>
-                <div class="myBtn" style="background-color:#c1b654" draggable="true" @dragstart="startDrag('yehuda', $event)" v-if="!yehudaFound">יהודה</div>
-                <div class="myBtn" style="background-color:#8c52ff" draggable="true" @dragstart="startDrag('amakim', $event)" v-if="!amakimFound">אזור העמקים</div>
+                <div class="myBtn" v-if="!found[0].found" @click="checkAnswer('negev')">הנגב</div>
+                <div class="myBtn" v-if="!found[2].found" @click="checkAnswer('hula')">עמק החולה</div>
+                <div class="myBtn" v-if="!found[3].found" @click="checkAnswer('mishor')">מישור החוף</div>
+                <div class="myBtn" v-if="!found[4].found" @click="checkAnswer('arava')">ערבה + בקעת הירדן</div>
+                <div class="myBtn" v-if="!found[5].found" @click="checkAnswer('hermon')">החרמון</div>
+                <div class="myBtn" v-if="!found[6].found" @click="checkAnswer('carmel')">הכרמל + השומרון</div>
+                <div class="myBtn" v-if="!found[7].found" @click="checkAnswer('galil')">הגליל</div>
+                <div class="myBtn" v-if="!found[8].found" @click="checkAnswer('yehuda')">יהודה</div>
+                <div class="myBtn" v-if="!found[1].found" @click="checkAnswer('golan')">רמת הגולן</div>
+                <div class="myBtn" v-if="!found[9].found" @click="checkAnswer('amakim')">איזור העמקים</div>
             </div>
             <div class="map-container">
-                <!--dropzones-->
-                <div class="dropzones">
-                    <div id="hermon-dz" @dragover.prevent @drop="handleDrop('hermon')"></div>
-                    <div id="golan-dz" @dragover.prevent @drop="handleDrop('golan')"></div>
-                    <div id="hula-dz" @dragover.prevent @drop="handleDrop('hula')"></div>
-                    <div id="galil-dz" @dragover.prevent @drop="handleDrop('galil')"></div>
-                    <div id="amakim-dz" @dragover.prevent @drop="handleDrop('amakim')"></div>
-                    <div id="carmel-dz" @dragover.prevent @drop="handleDrop('carmel')"></div>
-                    <div id="yehuda-dz" @dragover.prevent @drop="handleDrop('yehuda')"></div>
-                    <div id="mishor-dz" @dragover.prevent @drop="handleDrop('mishor')"></div>
-                    <div id="negev-dz" @dragover.prevent @drop="handleDrop('negev')"></div>
-                    <div id="arava-dz" @dragover.prevent @drop="handleDrop('arava')"></div>
-                </div>
                 <!--right answer indicators-->
                 <div class="dropzones">
-                    <img src="../assets/map/amakim.png" id="amakim-right" v-show="amakimFound"/>
-                    <img src="../assets/map/arava.png" id="arava-right" v-show="aravaFound"/>
-                    <img src="../assets/map/carmelShomron.png" id="carmelShomron-right" v-show="carmelFound"/>
-                    <img src="../assets/map/galil.png" id="galil-right" v-show="galilFound"/>
-                    <img src="../assets/map/golan.png" id="golan-right" v-show="golanFound"/>
-                    <img src="../assets/map/hermon.png" id="hermon-right" v-show="hermonFound"/>
-                    <img src="../assets/map/hula.png" id="hula-right" v-show="hulaFound"/>
-                    <img src="../assets/map/mishorHof.png" id="mishor-right" v-show="mishorFound"/>
-                    <img src="../assets/map/negev.png" id="negev-right" v-show="negevFound"/>
-                    <img src="../assets/map/yehuda.png" id="yehuda-right" v-show="yehudaFound"/>
+                    <img src="../assets/map/amakim.png" id="amakim-right" v-show="found[9].found || currentArea === 'amakim'"/>
+                    <img src="../assets/map/arava.png" id="arava-right" v-show="found[4].found || currentArea === 'arava'"/>
+                    <img src="../assets/map/carmelShomron.png" id="carmelShomron-right" v-show="found[6].found || currentArea === 'carmel'"/>
+                    <img src="../assets/map/golan.png" id="golan-right" v-show="found[1].found || currentArea === 'golan'"/>
+                    <img src="../assets/map/hermon.png" id="hermon-right" v-show="found[5].found || currentArea === 'hermon'"/>
+                    <img src="../assets/map/hula.png" id="hula-right" v-show="found[2].found || currentArea === 'hula'"/>
+                    <img src="../assets/map/mishorHof.png" id="mishor-right" v-show="found[3].found || currentArea === 'mishor'"/>
+                    <img src="../assets/map/negev.png" id="negev-right" v-show="found[0].found || currentArea === 'negev'"/>
+                    <img src="../assets/map/yehuda.png" id="yehuda-right" v-show="found[8].found || currentArea === 'yehuda'"/>
+                    <img src="../assets/map/galil.png" id="galil-right" v-show="found[7].found || currentArea === 'galil'"/>
                 </div>
             </div>
         </div>
+        <p class="feedback" :style="{color:feedbackColor}">{{ feedback }}</p>
     </div>
 </template>
 
@@ -51,65 +39,67 @@
 export default {
     data(){
         return{
-            negevFound : false,
-            amakimFound : false, 
-            aravaFound : false ,
-            carmelFound :false ,
-            galilFound : false, 
-            golanFound : false ,
-            hermonFound : false,
-            hulaFound : false,
-            mishorFound : false, 
-            yehudaFound : false,
-            currentRegion : null,
-
+            found : [{name:'negev' , found:false} , //0
+            {name:'golan' , found:false} ,//1
+            {name:'hula' , found:false} ,//2
+            {name:'mishor' , found:false} ,//3
+            {name:'arava' , found:false} ,//4
+            {name:'hermon' , found:false} ,//5
+            {name:'carmel' , found:false} ,//6
+            {name:'galil' , found:false} ,//7
+            {name:'yehuda' , found:false} ,//8
+            {name:'amakim' , found:false} //9
+            ], 
+            currentArea : '',
+            areas : ['negev' , 'golan' , 'hula' , 'mishor' , 'arava' , 'hermon' , 'carmel' , 'galil' ,'yehuda' , 'amakim'], //we will shuffle this array on mounted tu ensure random order each time.
+            stage:0,
+            feedback : '',
+            positive : "תשובה נכונה! קדימה לאיזור הבא.",
+            negative : "טעות, נסו עוד פעם.",
+            feedbackColor : ''
         }
     },
     methods : {
-        startDrag(name , event){
-            this.currentRegion = name;
-            event.dataTransfer.setData("text/plain", name);
-        },
-        handleDrop(zoneName){
-            if(zoneName === this.currentRegion){
-                switch(zoneName) {
-                    case 'arava':
-                        this.aravaFound = true;
-                        break;
-                    case 'yehuda':
-                        this.yehudaFound = true;
-                        break;
-                    case 'amakim': 
-                        this.amakimFound = true;
-                        break;
-                    case 'hermon':
-                        this.hermonFound = true;
-                        break;
-                    case 'galil':
-                        this.galilFound = true;
-                        break;
-                    case 'golan' :
-                        this.golanFound = true;
-                        break;
-                    case 'negev' :
-                        this.negevFound = true;
-                        break;
-                    case 'hula' :
-                        this.hulaFound = true;
-                        break;
-                    case 'carmel' :
-                        this.carmelFound = true;
-                        break;
-                    case 'mishor' :
-                        this.mishorFound = true;
-                        break;
-                    default:
-                        console.log("nothing");
-                        break;
+        checkAnswer(response){
+            if(response === this.currentArea){
+                this.feedback = this.positive;
+                this.feedbackColor = '#00ff44';
+                this.found.forEach(element => {
+                    if(element.name === response){
+                        element.found = true;
+                    }
+                });
+                if(this.stage === this.areas.length-1){
+                    this.feedback = "כל הכבוד! מצאתם את כל האיזורים!"
                 }
-                this.currentRegion = null;
+                else{
+                    this.stage++;
+                    this.currentArea = this.areas[this.stage];
+                }
+                
+            }
+            else{
+                this.feedback = this.negative;
+                this.feedbackColor = 'red';
             }
         }
+    },
+    mounted(){
+        let currentIndex = this.areas.length;
+
+        // While there remain elements to shuffle...
+        while (currentIndex != 0) {
+
+            // Pick a remaining element...
+            let randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            // And swap it with the current element.
+            [this.areas[currentIndex], this.areas[randomIndex]] = [
+            this.areas[randomIndex], this.areas[currentIndex]];
+        }
+        console.log("new array is: " + this.areas)
+        this.currentArea = this.areas[0];
     }
 }
 </script>
@@ -165,6 +155,8 @@ export default {
         font-size: 5vmin;
         font-weight: bold;
         padding: 3%;
+        background-color: white;
+        border : 2px solid #588baf;
     }
 
     .dropzones{
@@ -172,88 +164,13 @@ export default {
         width: 100%;
     }
 
-    #hermon-dz{
-        height: 5%;
-        width:7%;
-        position: absolute;
-        top:-1%;
-        right:41.5%;
-    }
-
-    #golan-dz{
-        height: 13%;
-        width:5%;
-        position: absolute;
-        top:5%;
-        right:41.5%;
-    }
-
-    #hula-dz{
-        height: 15%;
-        width:3%;
-        position:absolute;
-        top:3%;
-        right:48%;
-    }
-    #galil-dz{
-        height: 10%;
-        width:11%;
-        position:absolute;
-        top:6%;
-        right:54%;
-    }
-    #amakim-dz{
-        height: 13%;
-        width:3%;
-        position:absolute;
-        top:12%;
-        right:61%;
-        transform: rotate(-43deg);
-    }
-    #carmelShomron-dz{
-        height: 10%;
-        width:11%;
-        position:absolute;
-        top:25%;
-        right:57%;
-    }
-    #yehuda-dz{
-        height: 16%;
-        width:17%;
-        position:absolute;
-        top:38%;
-        right:59%;
-        transform: rotate(15deg);
-    }
-    #mishor-dz{
-        height: 25%;
-        width:17%;
-        position:absolute;
-        top:25%;
-        right:75%;
-        transform: rotate(23deg);
-    }
-    #negev-dz{
-        height: 30%;
-        width:13%;
-        position:absolute;
-        top:56%;
-        right:73%;
-    }
-    #arava-dz{
-        height: 70%;
-        width:4%;
-        position:absolute;
-        top:20%;
-        right:56%;
-        transform: rotate(10deg);
-    }
     #arava-right{
         height: 80%;
         width:29%;
         position:absolute;
         top:18%;
         right:49.5%;
+        animation: appear 0.3 ease;
     }
     #negev-right{
         height: 45.8%;
@@ -261,6 +178,7 @@ export default {
         position:absolute;
         top:52.2%;
         right:62.1%;
+        animation: appear 0.3 ease;
     }
     #yehuda-right{
         height: 24%;
@@ -268,6 +186,7 @@ export default {
         position:absolute;
         top:34%;
         right:57%;
+        animation: appear 0.3 ease;
     }
     #mishor-right{
         height: 35.4%;
@@ -275,6 +194,7 @@ export default {
         position:absolute;
         top:22.6%;
         right:70%;
+        animation: appear 0.3 ease;
     }
     #carmelShomron-right{
         height: 23%;
@@ -282,6 +202,7 @@ export default {
         position:absolute;
         top:14%;
         right:54%;
+        animation: appear 0.3 ease;
     }
     #amakim-right{
         height: 13%;
@@ -289,6 +210,7 @@ export default {
         position:absolute;
         top:12%;
         right:53.5%;
+        animation: appear 0.3 ease;
     }
     #galil-right{
         height: 18%;
@@ -296,6 +218,7 @@ export default {
         position:absolute;
         top:3.5%;
         right:50%;
+        animation: appear 0.3 ease;
     }
     #hula-right{
         height: 14.5%;
@@ -303,6 +226,7 @@ export default {
         position:absolute;
         top:3.5%;
         right:47.5%;
+        animation: appear 0.3 ease;
     }
     #golan-right{
         height: 14.5%;
@@ -310,6 +234,7 @@ export default {
         position:absolute;
         top:4%;
         right:41%;
+        animation: appear 0.3 ease;
     }
     #hermon-right{
         height: 2.75%;
@@ -317,6 +242,23 @@ export default {
         position:absolute;
         top:1.5%;
         right:42.5%;
+        animation: appear 0.3 ease;
+    }
+    .feedback{
+        position: absolute;
+        font-size: 5vmin;
+        bottom: -2%;
+        left: 50%;
+        transform: translateX(-50%);
+
+    }
+    @keyframes appear {
+        0%{
+            opacity : 0
+        }
+        100%{
+            opacity: 1;
+        }
     }
     @media (min-width: 1025px){
         .game-container{
