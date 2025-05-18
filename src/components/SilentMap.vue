@@ -52,7 +52,7 @@ export default {
             {name:'amakim' , found:false} //9
             ], 
             currentArea : '',
-            areas : ['negev' , 'golan' , 'hula' , 'mishor' , 'arava' , 'hermon' , 'carmel' , 'galil' ,'yehuda' , 'amakim'], //we will shuffle this array on mounted tu ensure random order each time.
+            areas : ['negev' , 'golan' , 'hula' , 'mishor' , 'arava' , 'hermon' , 'carmel' , 'galil' ,'yehuda' , 'amakim'], //we will shuffle this array on mounted to ensure random order each time.
             stage:0,
             feedback : '',
             positive : "תשובה נכונה! קדימה לאיזור הבא.",
@@ -62,6 +62,7 @@ export default {
     },
     methods : {
         checkAnswer(response){
+            this.feedback = '';
             setTimeout(() => {
                 if(response === this.currentArea){
                 this.feedback = this.positive;
@@ -119,7 +120,7 @@ export default {
         font-size: 4.65vmin;
         text-align: right;
         position: absolute;
-        top:0;
+        top:-1%;
     }
     .game-container{
         height:80%;
@@ -127,7 +128,7 @@ export default {
         position:absolute;
         left:50%;
         transform:translateX(-50%);
-        top:12%;
+        top:8%;
         padding: 2%;
         display: flex;
         flex-flow: row nowrap;
@@ -256,7 +257,7 @@ export default {
     .feedback{
         position: absolute;
         font-size: 5vmin;
-        bottom: -2%;
+        bottom: 3%;
         left: 50%;
         transform: translateX(-50%);
 

@@ -116,6 +116,7 @@ export default {
     width: 100%;
     justify-content: flex-end;
     padding-top: 2vmin;
+    margin-bottom: 10vmin;
 }
 .navs{
     height:100%;

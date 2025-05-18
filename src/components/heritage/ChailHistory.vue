@@ -267,6 +267,7 @@ export default {
         justify-content: space-between;
         padding-top: 2vmin;
         z-index: 13;
+        margin-bottom: 10vmin;
     }
     .navs{
         height:100%;

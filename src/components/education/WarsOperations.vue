@@ -90,6 +90,7 @@ export default {
         width: 100%;
         justify-content: space-between;
         padding-top: 2vmin;
+        margin-bottom: 10vmin;
     }
     .navs{
         height:100%;

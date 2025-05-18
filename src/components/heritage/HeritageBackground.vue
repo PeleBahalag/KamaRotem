@@ -67,6 +67,7 @@ export default {
         display: flex;
         flex-flow: column;
         justify-content: flex-end;
+        margin-bottom: 10vmin;
     }
     .navpic{
         height: 150%;

@@ -200,11 +200,11 @@
             </div>
             <div class="accordion-item">
                 <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse6" aria-expanded="false" aria-controls="flush-collapse6">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse13" aria-expanded="false" aria-controls="flush-collapse13">
                     פורים
                 </button>
                 </h2>
-                <div id="flush-collapse6" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div id="flush-collapse13" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                     {{holidays.purim}}
                 </div>
@@ -339,6 +339,7 @@ export default {
         width: 100%;
         justify-content: space-between;
         padding-top: 2vmin;
+        margin-bottom: 10vmin;
     }
     .navs{
         height:100%;

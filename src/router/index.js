@@ -15,7 +15,6 @@ import TopoComp from '../components/topography/TopoComp.vue'
 import TopoOne from '../components/topography/TopoOne.vue'
 import TopoTwo from '../components/topography/TopoTwo.vue'
 import TopoThree from '../components/topography/TopoThree.vue'
-import TopoFour from '../components/topography/TopoFour.vue'
 
 const routes = [
   { path: '/KamaRotem', component: HomeScreen },
@@ -36,7 +35,6 @@ const routes = [
         {path:'1' , component: TopoOne},
         {path:'2' , component: TopoTwo},
         {path:'3' , component: TopoThree},
-        {path:'4' , component: TopoFour}
       ]}
     ]
   }
